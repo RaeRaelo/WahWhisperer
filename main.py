@@ -5,12 +5,12 @@ from src.storage import DataManager
 
 if __name__ == "__main__":
     mconfig = FetcherConfig(
-        base_url=HttpUrl("https://e621.net"),
-        username="RaeRaelo",
+        base_url=HttpUrl("https://example.net"),
+        username="Example",
         project_name="WahWhisperer"
     )
     fetcher = BooruFetcher(config=mconfig)
-    raw_data = fetcher.fetch_posts(tags="red_panda order:random", limit=1)
+    raw_data = fetcher.fetch_posts(tags="red_panda", limit=1)
     if raw_data is not None:
         parser = BooruParser()
         clean_data = parser.parse_post(raw_post=raw_data['posts'][0])
